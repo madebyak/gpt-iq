@@ -1,0 +1,11 @@
+{
+  "Greeting": "مرحباً!",
+  "Navbar": {
+    "title": "gpt-iq ذكاء",
+    "home": "الرئيسية",
+    "settings": "الإعدادات"
+  },
+  "Homepage": {
+    "welcome": "أهلاً بك في gpt-iq"
+  }
+}

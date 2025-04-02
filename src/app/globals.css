@@ -1,26 +1,126 @@
-@import "tailwindcss";
+/* src/app/globals.css */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* --- IBM Plex Sans (English) --- */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('/fonts/IBMPlexSans-Regular.woff2') format('woff2'); /* Adjust filename if needed */
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('/fonts/IBMPlexSans-Medium.woff2') format('woff2'); /* Adjust filename */
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('/fonts/IBMPlexSans-Bold.woff2') format('woff2'); /* Adjust filename */
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* --- IBM Plex Sans Arabic --- */
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  src: url('/fonts/IBMPlexSansArabic-Regular.woff2') format('woff2'); /* Adjust filename */
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
+ @font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  src: url('/fonts/IBMPlexSansArabic-Medium.woff2') format('woff2'); /* Adjust filename */
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+ @font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  src: url('/fonts/IBMPlexSansArabic-Bold.woff2') format('woff2'); /* Adjust filename */
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* --- End Font Faces --- */
 
-@media (prefers-color-scheme: dark) {
+/* --- Tailwind Directives --- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* --- End Tailwind Directives --- */
+
+/* --- Base Layer Styles & Variables --- */
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* --- Font Variables --- */
+    --font-ibm-plex-sans: 'IBM Plex Sans';
+    --font-ibm-plex-sans-arabic: 'IBM Plex Sans Arabic';
+
+    /* --- Light Theme Colors (HSL: H S% L%) --- */
+    --background: 210 17% 97%; /* #f8f9fa */
+    --foreground: 222 25% 8%;  /* #10131a */
+    --card: 0 0% 100%;         /* #ffffff */
+    --card-foreground: 222 25% 8%; /* #10131a */
+    --popover: 0 0% 100%;      /* #ffffff */
+    --popover-foreground: 222 25% 8%; /* #10131a */
+    --primary: 221 78% 52%;    /* #2364e4 */
+    --primary-foreground: 220 20% 97%; /* #f6f7f9 */
+    --secondary: 218 17% 94%;  /* #eef0f2 */
+    --secondary-foreground: 222 25% 8%; /* #10131a */
+    --muted: 216 20% 95%;      /* #f1f3f5 */
+    --muted-foreground: 218 17% 43%; /* #5c6a7e */
+    --accent: 150 73% 52%;     /* #28e088 */
+    --accent-foreground: 222 25% 8%; /* #10131a */
+    --destructive: 0 66% 54%; /* #d43d3e */
+    --destructive-foreground: 220 20% 97%; /* #f6f7f9 */
+    --border: 215 20% 91%;     /* #e2e8f0 */
+    --input: 215 20% 91%;      /* #e2e8f0 */
+    --ring: 221 78% 52%;       /* #2364e4 */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* --- Dark Theme Colors (HSL: H S% L%) --- */
+    --background: 0 0% 3%;     /* #080808 */
+    --foreground: 220 20% 97%; /* #f6f7f9 */
+    --card: 222 25% 8%;        /* #10131a */
+    --card-foreground: 220 20% 97%; /* #f6f7f9 */
+    --popover: 222 25% 8%;     /* #10131a */
+    --popover-foreground: 220 20% 97%; /* #f6f7f9 */
+    --primary: 221 78% 52%;    /* #2364e4 */
+    --primary-foreground: 220 20% 97%; /* #f6f7f9 */
+    --secondary: 222 25% 14%;  /* #1a202c */
+    --secondary-foreground: 220 20% 97%; /* #f6f7f9 */
+    --muted: 222 25% 8%;       /* #10131a */
+    --muted-foreground: 222 20% 75%; /* #b5bbcb */
+    --accent: 150 73% 52%;     /* #28e088 */
+    --accent-foreground: 0 0% 3%; /* #080808 */
+    --destructive: 0 66% 54%; /* #d43d3e */
+    --destructive-foreground: 220 20% 97%; /* #f6f7f9 */
+    --border: 222 25% 14%;     /* #1a202c */
+    --input: 222 25% 14%;      /* #1a202c */
+    --ring: 221 78% 52%;       /* #2364e4 */
+    /* --radius is inherited from :root */
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  body {
+    /* Base variables apply automatically, set font smoothing */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  /* Apply default English font */
+  body {
+     font-family: var(--font-ibm-plex-sans), sans-serif;
+  }
+  /* Apply Arabic font when lang="ar" */
+  html[lang="ar"] body {
+    font-family: var(--font-ibm-plex-sans-arabic), sans-serif;
+  }
 }
+/* --- End Base Layer --- */

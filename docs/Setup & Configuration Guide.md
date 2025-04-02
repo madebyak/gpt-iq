@@ -47,7 +47,7 @@
 2.  Navigate to **Project Settings** > **API**.
 3.  Copy the **Project URL** and the **`anon` `public` API Key**. Keep them ready.
 
----
+---completed by me 
 
 **Step 5: Create `.env.local` File**
 
@@ -61,6 +61,7 @@
     NEXT_PUBLIC_SUPABASE_URL=YOUR_SUPABASE_PROJECT_URL_HERE
     NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY_HERE
     ```
+    ---- completed by me
 3.  Verify `.env.local` is listed in your `.gitignore` file (it should be by default).
 4.  **Commit this:**
 
