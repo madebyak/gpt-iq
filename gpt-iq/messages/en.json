@@ -1,0 +1,10 @@
+{
+  "Navbar": {
+    "title": "gpt-iq",
+    "home": "Home",
+    "settings": "Settings"
+  },
+  "Homepage": {
+    "welcome": "Welcome to gpt-iq"
+  }
+}
